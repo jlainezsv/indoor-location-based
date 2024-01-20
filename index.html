@@ -10,65 +10,15 @@
     <script>
         THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
     </script>
-    <script>
-        window.onload = () => {
-    let testEntityAdded = false;
-
-    const el = document.querySelector("[gps-new-camera]");
-
-    el.addEventListener("gps-camera-update-position", e => {
-        if(!testEntityAdded) {
-            alert(`Got first GPS position: lon ${e.detail.position.longitude} lat ${e.detail.position.latitude}`);
-            // Add a box to the north of the initial GPS position
-            const entity = document.createElement("a-box");
-            entity.setAttribute("scale", {
-                x: 20, 
-                y: 20,
-                z: 20
-            });
-            entity.setAttribute('material', { color: 'red' } );
-            entity.setAttribute('gps-new-entity-place', {
-                latitude: e.detail.position.latitude + 0.001,
-                longitude: e.detail.position.longitude
-            });
-            document.querySelector("a-scene").appendChild(entity);
-        }
-        testEntityAdded = true;
-    });
-};
-    </script>
 </head>
 
+<script src="./script.js"></script>
 <body style='margin: 0; overflow: hidden;'>
-    <!-- <a-scene
-        vr-mode-ui="enabled: false"
+    <a-scene
+       vr-mode-ui="enabled: false"
 		embedded
-        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'> -->
-
-        <!-- gps-entity-place="longitude: -79.67235216713091; latitude: 43.57831820322465;" -->
-    <a-scene vr-mode-ui="enabled: false" embedded
-        arjs='sourceType: webcam; sourceWidth:1920; sourceHeight:1080; displayWidth: 1920; displayHeight: 1080; debugUIEnabled: true;'
-    >
-        
-        
-
-
-
-        <!-- Using the asset management system. -->
-        <!-- <a-image src="#me"  position="0 1.25 -5" scale="0.15 0.15 0.15"></a-image> -->
-        <!-- Defining the URL inline. Not recommended but more comfortable for web developers. -->
-        <!-- <a-image src="./assets/me.jpg"  width="3" height="1.5"></a-image> -->
-
-        <!-- <a-sphere position="0 1.25 -5" radius="0.25" color="#EF2D5E"></a-sphere> -->
-        <!-- <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" static-body></a-plane> -->
-        <!-- <a-box color="yellow" gps-entity-place="latitude: 43.57831820322465; longitude: -79.67235216713091"/> -->
-        <!-- <a-scene gps-camera-debug embedded arjs='sourceType: webcam; debugUIEnabled: false;'></a-scene> -->
-
-        <a-camera gps-camera rotation-reader></a-camera>
-        <a-entity position="0 1.25 -5" gltf-model="./assets/magnemite/scene.gltf" rotation="0 50 0" scale="0.05 0.05 0.05" gps-entity-place="longitude: -79.67235216713091; latitude: 43.57831820322465;" animation-mixer/>
-        <!-- <a-entity position="0 1.25 -5" gltf-model="./assets/magnemite/scene.gltf" rotation="0 10 0" scale="0.15 0.15 0.15" gps-entity-place="longitude: -79.67235216713091; latitude: 43.57831820322465;" animation-mixer/> -->
+        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+        <a-camera gps-camera rotation-reader>
+		</a-camera>
 	</a-scene>
-
-
-   
 </body>
