@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>GeoAR.js demo</title>
+    <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script>
+        THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
+    </script>
+</head>
+
+<body style='margin: 0; overflow: hidden;'>
+  
+<!-- add artoolkit into your scene -->
+    <a-scene artoolkit>
+        <!-- <a-camera gps-camera rotation-reader></a-camera> -->
+        <a-camera gps-camera="alert: true; minDistance: 5" rotation-reader="" camera="active: false; spectator: true; zoom: 0.67" position="0 1.43471 0.12159" rotation="-1.3750987083139778 169.3663242406713 0" look-controls="" wasd-controls="" data-aframe-inspector-original-camera=""></a-camera>
+
+        <a-box position="-1 2 -3" rotation="0 0 0" color="#4CC3D9" src="/assets/sw.png"></a-box>
+
+        <a-camera gps-camera="alert: true; minDistance: 10; latitude:43.57831820322465; simulateLongitude: -79.67235216713091; simulateAltitude: 0.42; positionMinAccuracy: 1000" rotation-reader="" camera="active: false; spectator: true; zoom: 0.67" position="0.02664 1.15481 1.01479" rotation="" look-controls="" wasd-controls="" data-aframe-inspector-original-camera="" visible=""></a-camera>
+    </a-scene>
+   
+</body>
+</html>
